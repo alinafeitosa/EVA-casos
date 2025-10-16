@@ -3,78 +3,73 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EVA – Assistente Virtual Endocrinológica</title>
-  <meta name="description" content="EVA – Assistente Virtual Endocrinológica. Inteligência médica para a Endocrinologia: hospital, consultório e atenção básica." />
+  <title>EVA – Assistente Virtual em Endocrinologia</title>
+  <meta name="description" content="EVA – Assistente Virtual em Endocrinologia. Inteligência médica em hospital, consultório e atenção básica." />
+  <!-- Tipografia próxima ao site da EVA -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0b0f14;           /* fundo escuro */
-      --panel:#111823;        /* painéis */
-      --text:#e6f0ff;         /* texto principal */
-      --muted:#9bb3c9;        /* texto secundário */
-      --eva:#59e3ff;          /* ciano EVA */
-      --eva2:#8fffe0;         /* verde água EVA */
-      --accent:#b5f5ff;       /* realce */
-      --border:#1b2431;       /* borda sutil */
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --bg:#0b0f14; --panel:#111823; --text:#e6f0ff; --muted:#9bb3c9;
+      --eva:#59e3ff; --eva2:#8fffe0; --border:#1b2431; --shadow:0 10px 30px rgba(0,0,0,.35);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:radial-gradient(1200px 800px at 70% -10%, rgba(89,227,255,.12), transparent 50%),var(--bg);color:var(--text);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif}
-    a{color:var(--eva)}
-    .container{width:min(1100px,92vw);margin-inline:auto}
-    header{
-      position:sticky;top:0;z-index:20;backdrop-filter:saturate(1.3) blur(8px);
-      background:linear-gradient(180deg, rgba(11,15,20,.85), rgba(11,15,20,.55));
-      border-bottom:1px solid var(--border)
-    }
-    header .bar{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
-    .logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
-    .logo-mark{font-weight:700;letter-spacing:.08em;font-size:1.2rem}
-    .logo-badge{width:44px;height:24px;border:1px solid rgba(143,255,224,.5);border-radius:14px;display:grid;place-items:center;color:var(--eva2)}
-    nav a{margin-left:1rem;text-decoration:none;color:var(--muted)}
-    nav a:hover{color:var(--text)}
+    html,body{margin:0;background:radial-gradient(1200px 800px at 70% -10%, rgba(89,227,255,.12), transparent 50%),var(--bg);color:var(--text);
+      font:16px/1.6 Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;scroll-behavior:smooth}
+    h1,h2,h3,.logo-mark{font-family:Poppins, Inter, system-ui, sans-serif}
+    a{color:var(--eva);text-decoration:none} a:hover{text-decoration:underline}
+    .container{width:min(1120px,92vw);margin-inline:auto}
 
-    .hero{padding:5.5rem 0 3rem;border-bottom:1px solid var(--border);
+    header{position:sticky;top:0;z-index:20;backdrop-filter:saturate(1.2) blur(8px);
+      background:linear-gradient(180deg, rgba(11,15,20,.9), rgba(11,15,20,.55));border-bottom:1px solid var(--border)}
+    header .bar{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
+    .logo{display:flex;align-items:center;gap:.6rem}
+    .logo img{height:28px;display:block;filter:drop-shadow(0 0 8px rgba(143,255,224,.25))}
+    .logo-mark{font-weight:700;letter-spacing:.01em;font-size:1.02rem}
+    nav a{margin-left:1rem;color:var(--muted)} nav a:hover{color:var(--text);text-decoration:none}
+
+    .hero{padding:5.2rem 0 3rem;border-bottom:1px solid var(--border);
       background:radial-gradient(600px 300px at 20% 10%, rgba(143,255,224,.06), transparent 60%)}
-    .hero h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin:.2rem 0 .6rem 0}
-    .hero p.lead{color:var(--muted);max-width:68ch}
-    .tag{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .7rem;border:1px solid var(--border);border-radius:999px;color:var(--accent);background:linear-gradient(180deg, rgba(17,24,35,.8), rgba(17,24,35,.45))}
+    .hero h1{font-size:clamp(2rem,5vw,3rem);line-height:1.12;margin:.2rem 0 .6rem}
+    .lead{color:var(--muted);max-width:68ch}
+    .tag{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .7rem;border:1px solid var(--border);border-radius:999px;color:var(--eva2);
+      background:linear-gradient(180deg, rgba(17,24,35,.85), rgba(17,24,35,.45))}
+    section{padding:2.8rem 0;border-bottom:1px solid var(--border)}
+    h2{font-size:1.6rem;margin:0 0 .6rem} .small{font-size:.95rem;color:var(--muted)}
 
     .grid{display:grid;gap:1rem}
-    .areas{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin:1.25rem 0 0}
-    .card{background:linear-gradient(180deg, rgba(17,24,35,.85), rgba(17,24,35,.6));border:1px solid var(--border);border-radius:16px;padding:1rem 1.1rem;box-shadow:var(--shadow)}
-    .card h3{margin:.2rem 0 .4rem 0;font-size:1.05rem}
-    .card p{color:var(--muted);margin:.2rem 0 0}
+    .areas{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:1.25rem}
+    .card{background:linear-gradient(180deg, rgba(17,24,35,.88), rgba(17,24,35,.62));border:1px solid var(--border);border-radius:16px;padding:1rem 1.1rem;box-shadow:var(--shadow)}
+    .card h3{margin:.2rem 0 .4rem;font-size:1.05rem} .card p{color:var(--muted);margin:.2rem 0 0}
 
-    section{padding:2.8rem 0;border-bottom:1px solid var(--border)}
-    h2{font-size:1.6rem;margin:0 0 .6rem 0}
-    ul.check{padding-left:1rem;color:var(--muted)}
-    ul.check li{margin:.35rem 0}
+    ul.check{padding-left:1rem;color:var(--muted)} ul.check li{margin:.35rem 0}
+    .chips{display:flex;flex-wrap:wrap;gap:.5rem}
+    .chip{display:inline-block;padding:.28rem .6rem;border-radius:999px;border:1px solid var(--border);background:rgba(17,24,35,.7);color:var(--muted);font-size:.92rem}
 
-    .repo-box{cursor:pointer;display:flex;align-items:center;gap:1rem;padding:1.2rem 1.4rem;border:1px dashed rgba(137, 246, 255, .5);border-radius:16px;background:linear-gradient(180deg, rgba(17,24,35,.9), rgba(17,24,35,.55));box-shadow:0 0 0 2px rgba(89,227,255,.08) inset, var(--shadow);transition:transform .15s ease, box-shadow .15s ease}
+    .repo-box{cursor:pointer;display:flex;align-items:center;gap:1rem;padding:1.2rem 1.4rem;border:1px dashed rgba(137,246,255,.5);border-radius:16px;
+      background:linear-gradient(180deg, rgba(17,24,35,.92), rgba(17,24,35,.55));box-shadow:0 0 0 2px rgba(89,227,255,.08) inset, var(--shadow);
+      transition:transform .15s ease, box-shadow .15s ease}
     .repo-box:hover{transform:translateY(-2px);box-shadow:0 0 0 2px rgba(89,227,255,.22) inset, 0 12px 30px rgba(89,227,255,.08), var(--shadow)}
-    .repo-icon{min-width:44px;min-height:44px;border-radius:10px;display:grid;place-items:center;background:radial-gradient(60% 80% at 50% 0%, rgba(89,227,255,.35), rgba(143,255,224,.15));border:1px solid rgba(89,227,255,.35)}
+    .repo-icon{min-width:44px;min-height:44px;border-radius:10px;display:grid;place-items:center;
+      background:radial-gradient(60% 80% at 50% 0%, rgba(89,227,255,.35), rgba(143,255,224,.15));border:1px solid rgba(89,227,255,.35)}
 
     .footer{padding:2rem 0}
-    .small{font-size:.94rem;color:var(--muted)}
-
-    /* chips */
-    .chip{display:inline-block;margin:.25rem .35rem .25rem 0;padding:.28rem .6rem;border-radius:999px;border:1px solid var(--border);background:rgba(17,24,35,.7);color:var(--muted);font-size:.92rem}
-
-    /* responsive tweaks */
-    @media (max-width:720px){
-      nav{display:none}
-      .hero{padding:4rem 0 2rem}
-    }
+    .cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1rem}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border);background:rgba(17,24,35,.75);color:var(--text);
+      padding:.55rem .9rem;border-radius:12px;text-decoration:none}
+    .btn:hover{background:rgba(17,24,35,.9);text-decoration:none}
+    .btn-primary{border-color:rgba(89,227,255,.35);box-shadow:0 0 0 2px rgba(89,227,255,.1) inset}
+    .btn-primary:hover{box-shadow:0 0 0 2px rgba(89,227,255,.25) inset, 0 6px 16px rgba(89,227,255,.08)}
+    @media (max-width:720px){nav{display:none}.hero{padding:4rem 0 2rem}}
   </style>
 </head>
 <body>
   <header>
     <div class="container bar">
       <a class="logo" href="#top" aria-label="Início EVA">
-        <div class="logo-badge">EVA</div>
-        <div class="logo-mark">Assistente Virtual Endocrinológica</div>
+        <img src="assets/eva-logo.png" alt="EVA – Assistente Virtual em Endocrinologia" />
+        <div class="logo-mark">Assistente Virtual em Endocrinologia</div>
       </a>
-      <nav>
+      <nav aria-label="Navegação principal">
         <a href="#areas">Áreas</a>
         <a href="#como-funciona">Como funciona</a>
         <a href="#demos">Demonstrações</a>
@@ -84,52 +79,66 @@
   </header>
 
   <main id="top">
-    <section class="hero">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="titulo-principal">
       <div class="container">
         <span class="tag">Inteligência médica para a Endocrinologia</span>
-        <h1>EVA – Assistente Virtual Endocrinológica</h1>
+        <h1 id="titulo-principal">EVA – Assistente Virtual em Endocrinologia</h1>
         <p class="lead">A EVA é uma plataforma digital desenvolvida para apoiar médicos em diferentes cenários de cuidado — do ambiente hospitalar ao consultório. Cada módulo foi projetado para responder de forma <strong>rápida, padronizada e fundamentada em diretrizes</strong>, auxiliando na tomada de decisão em tempo real.</p>
         <p class="lead">Criada pela dupla de médicos — <strong>Dra. Alina Coutinho Rodrigues Feitosa</strong>, endocrinologista com título de especialista, mais de 20 anos de experiência em endocrinologia geral e 18 anos em endocrinologia hospitalar, e <strong>Dr. Daniel Pazos</strong>, clínico geral e futuro endocrinologista entusiasta em tecnologia e inovação — e com o programador <strong>Antonio Lucas</strong> — a EVA une <strong>ciência clínica, metodologia e tecnologia</strong> para aprimorar a segurança, eficiência e o raciocínio médico.</p>
-      </div>
-    </section>
-
-    <section id="areas">
-      <div class="container">
-        <h2>⚕️ Áreas de Atuação da EVA</h2>
-        <p class="small">Cada assistente é especializado em um contexto clínico, com algoritmos ajustados para o tipo de paciente e local de atendimento.</p>
-        <div class="grid areas">
-          <article class="card">
-            <h3>🏥 EVA – Controle Glicêmico Hospitalar</h3>
-            <p>Avalia mapas glicêmicos, identifica padrões de risco e propõe ajustes de insulina conforme protocolos hospitalares.</p>
-          </article>
-          <article class="card">
-            <h3>💉 EVA – Insulinoterapia na Atenção Básica</h3>
-            <p>Auxilia médicos generalistas na iniciação e titulação de insulina em DM2, promovendo segurança e adesão.</p>
-          </article>
-          <article class="card">
-            <h3>🧠 EVA – Obesidade</h3>
-            <p>Classifica graus e fenótipos, sugere estratégias farmacológicas e comportamentais, e gera planos de seguimento.</p>
-          </article>
-          <article class="card">
-            <h3>🩺 EVA – Diabetes em Perioperatório</h3>
-            <p>Define condutas pré, intra e pós-operatórias com base em risco cirúrgico e regime terapêutico.</p>
-          </article>
-          <article class="card">
-            <h3>🧬 EVA – Nódulos Tireoidianos (ATA 2025)</h3>
-            <p>Classifica nódulos segundo ATA Preview 2025, indicando PAAF e intervalos de seguimento.</p>
-          </article>
-          <article class="card">
-            <h3>💓 EVA – Hipertensão Resistente / Hiperaldosteronismo</h3>
-            <p>Guia a investigação de causas secundárias, interpretação de exames e indicações de rastreio/tratamento.</p>
-          </article>
-          <article class="card">
-            <h3>⚡ EVA – Hiperglicemias Severas e Crises</h3>
-            <p>Aplica critérios diagnósticos e orienta manejo de CAD e EHH, incluindo transição e monitoramento.</p>
-          </article>
+        <div class="cta-row" role="group" aria-label="Ações principais">
+          <a class="btn btn-primary" href="#areas">Ver áreas de atuação</a>
+          <a class="btn" href="#demos">Explorar demonstrações</a>
+          <a class="btn" href="./casos/" target="_blank" rel="noopener">Repositório de casos</a>
         </div>
       </div>
     </section>
 
+    <!-- AREAS -->
+    <section id="areas">
+      <div class="container">
+        <h2>⚕️ Áreas de Atuação da EVA</h2>
+        <p class="small">Cada assistente é especializado em um contexto clínico, com algoritmos ajustados para o tipo de paciente e local de atendimento.</p>
+
+        <div class="grid areas" role="list">
+          <article class="card" role="listitem">
+            <h3>🏥 EVA – Controle Glicêmico Hospitalar</h3>
+            <p>Avalia mapas glicêmicos, identifica padrões de risco e propõe ajustes de insulina conforme protocolos hospitalares.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>💉 EVA – Insulinoterapia na Atenção Básica</h3>
+            <p>Auxilia médicos generalistas na iniciação e titulação de insulina em DM2, promovendo segurança e adesão.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>🧠 EVA – Obesidade</h3>
+            <p>Classifica graus e fenótipos, propõe estratégias farmacológicas e comportamentais e gera planos de seguimento.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>🩺 EVA – Diabetes em Perioperatório</h3>
+            <p>Define condutas pré, intra e pós-operatórias com base em risco cirúrgico e regime terapêutico.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>🧬 EVA – Nódulos Tireoidianos (ATA 2025)</h3>
+            <p>Classifica nódulos segundo ATA Preview 2025, indicando PAAF e intervalos de seguimento.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>💓 EVA – Hipertensão Resistente / Hiperaldosteronismo</h3>
+            <p>Guia a investigação de causas secundárias, interpretação de exames e indicações de rastreio/tratamento.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>⚡ EVA – Hiperglicemias Severas e Crises</h3>
+            <p>Aplica critérios diagnósticos e orienta manejo de CAD e EHH, incluindo transição e monitoramento.</p>
+          </article>
+        </div>
+
+        <p class="small" style="margin-top:1rem">
+          <strong>Em construção:</strong> outros assistentes estão sendo desenvolvidos com base em diretrizes. Em breve: 
+          <em>Hipertensão Arterial Sistêmica</em>, <em>Dislipidemia</em> e <em>Terapia de Reposição Hormonal</em>.
+        </p>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
     <section id="como-funciona">
       <div class="container">
         <h2>🧠 Como a EVA funciona</h2>
@@ -143,38 +152,20 @@
       </div>
     </section>
 
-    <section id="validacao">
-      <div class="container">
-        <h2>🔬 Base científica e validação</h2>
-        <p class="small">Os algoritmos da EVA foram desenvolvidos a partir de consensos médicos e validados por especialistas com experiência hospitalar e ambulatorial. Projetos em andamento incluem estudos de concordância entre EVA e especialistas humanos, seguindo os padrões DECIDE-AI.</p>
-      </div>
-    </section>
-
-    <section id="aplicacoes">
-      <div class="container">
-        <h2>🧩 Aplicações práticas</h2>
-        <div class="chips">
-          <span class="chip">Protocolos de enfermarias e emergências</span>
-          <span class="chip">Apoio à decisão e treinamento de residentes</span>
-          <span class="chip">Auditorias de qualidade assistencial</span>
-          <span class="chip">Educação médica e simulação</span>
-          <span class="chip">Atenção primária e racionalização terapêutica</span>
-        </div>
-      </div>
-    </section>
-
+    <!-- DEMOS -->
     <section id="demos">
       <div class="container">
         <h2>🖥️ Demonstrações EVA</h2>
         <p class="small">💠 Explore casos simulados e veja como a EVA raciocina:</p>
+
         <div class="grid areas">
           <article class="card">
-            <h3>Hipoglicemia hospitalar grave</h3>
+            <h3>Hiperglicemia hospitalar grave</h3>
             <p>EVA analisa dados e propõe ajustes de insulina e vigilância.</p>
           </article>
           <article class="card">
-            <h3>Obesidade grau II em uso de GLP-1</h3>
-            <p>EVA recomenda reavaliação em 3 meses e estratégias combinadas.</p>
+            <h3>Obesidade grau II em primeira consulta</h3>
+            <p>EVA avalia o caso e recomenda estratégias combinadas de MEVs e medicações.</p>
           </article>
           <article class="card">
             <h3>Nódulo tireoidiano 1,4 cm – isoecoico</h3>
@@ -182,12 +173,11 @@
           </article>
         </div>
 
-        <!-- CAIXA CLICÁVEL PARA O REPOSITÓRIO DE CASOS -->
-        <div style="margin-top:1.4rem"></div>
-        <button class="repo-box" id="open-repo" aria-label="Abrir repositório de casos pseudoanonimizados"
-                data-url="https://www.evassist.me/casos">
+        <!-- Botão para /casos/ -->
+        <div style="height:1.4rem"></div>
+        <button class="repo-box" id="open-repo" type="button" aria-label="Abrir repositório de casos pseudoanonimizados"
+                data-url="./casos/">
           <div class="repo-icon" aria-hidden="true">
-            <!-- ícone simples -->
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
               <rect x="3" y="4" width="18" height="14" rx="2"/>
               <path d="M7 8h10M7 12h6"/>
@@ -198,46 +188,32 @@
             <div class="small">Clique para abrir a biblioteca de exemplos para teste e estudo. <span style="color:var(--eva)">Acesso exclusivo para profissionais de saúde.</span></div>
           </div>
         </button>
-        <noscript><p class="small">O botão acima abre o repositório em uma nova aba. Se preferir, acesse: <a href="https://www.evassist.me/casos">evassist.me/casos</a></p></noscript>
+        <noscript><p class="small">Acesse: <a href="./casos/">/casos/</a></p></noscript>
       </div>
     </section>
 
-    <section id="integracao">
-      <div class="container">
-        <h2>⚙️ Integração e expansão</h2>
-        <p class="small">A EVA pode ser integrada a sistemas hospitalares via <strong>FHIR</strong> ou <strong>HL7</strong>, funcionando também como módulo independente em aplicativos, prontuários eletrônicos ou plataformas de ensino.</p>
-      </div>
-    </section>
-
-    <section id="essencia">
-      <div class="container">
-        <h2>🩰 A essência da EVA</h2>
-        <blockquote class="small" style="border-left:3px solid rgba(143,255,224,.5);padding-left:.8rem;margin:0">“Tecnologia com alma clínica.”</blockquote>
-        <p class="small">A EVA não substitui o médico. Ela amplia o raciocínio clínico, reforça a segurança e aproxima o cuidado médico da excelência.</p>
-      </div>
-    </section>
-
+    <!-- CONTATO -->
     <section id="contato">
       <div class="container">
         <h2>📞 Contato</h2>
-        <p><strong>Coordenação Geral:</strong> Dra. Alina Coutinho Rodrigues Feitosa<br/>
-        Endocrinologia Hospitalar e Ambulatorial<br/>
-        📧 <a href="mailto:contato@evassist.me">contato@evassist.me</a><br/>
-        🌍 <a href="https://www.evassist.me" target="_blank" rel="noopener">www.evassist.me</a></p>
+        <p>
+          <strong>Coordenação Geral:</strong> Dra. Alina Coutinho Rodrigues Feitosa<br/>
+          Endocrinologia Hospitalar e Ambulatorial<br/>
+          📧 <a href="mailto:contato@evassist.me">contato@evassist.me</a><br/>
+          🌍 <a href="https://www.evassist.me" target="_blank" rel="noopener">www.evassist.me</a>
+        </p>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container small">© <span id="year"></span> EVA – Assistente Virtual Endocrinológica</div>
+    <div class="container small">© <span id="year"></span> EVA – Assistente Virtual em Endocrinologia</div>
   </footer>
 
   <script>
-    // ano automático no rodapé
     document.getElementById('year').textContent = new Date().getFullYear();
-    // ação do botão do repositório de casos
     document.getElementById('open-repo').addEventListener('click', function(){
-      const url = this.getAttribute('data-url') || 'https://www.evassist.me/casos';
+      const url = this.getAttribute('data-url') || './casos/';
       window.open(url, '_blank', 'noopener');
     });
   </script>
