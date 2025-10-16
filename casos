@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Casos EVA – Repositório (pseudoanonimizados)</title>
+  <meta name="description" content="Repositório de casos pseudoanonimizados para demonstração da EVA." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b0f14;--panel:#111823;--text:#e6f0ff;--muted:#9bb3c9;--eva:#59e3ff;--border:#1b2431}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter, system-ui, -apple-system, Segoe UI, Roboto}
+    h1,h2{font-family:Poppins, Inter, system-ui}
+    .wrap{width:min(1000px,92vw);margin:2.2rem auto}
+    a{color:var(--eva)} .muted{color:var(--muted)}
+    .card{background:linear-gradient(180deg, rgba(17,24,35,.9), rgba(17,24,35,.6));border:1px solid var(--border);border-radius:14px;padding:1rem 1.2rem;margin:.6rem 0}
+    ul{padding-left:1rem;margin:.3rem 0}
+    .case-item{margin:.4rem 0}
+    .tip{font-size:.92rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../" style="text-decoration:none">← Voltar ao site EVA</a>
+    <h1>Casos EVA – Repositório (pseudoanonimizados)</h1>
+    <p class="muted">Página ativa com os casos em formato de repositório. Cada caso deve conter informações clínicas (que você enviará). Abaixo fica a lista de títulos — basta criar o arquivo e linkar.</p>
+
+    <div class="card">
+      <h2>Como adicionar um novo caso</h2>
+      <ol class="tip">
+        <li>Crie um arquivo por caso nesta pasta <code>/casos/</code>, por ex.: <code>hiperglicemia-grave-01.html</code> ou <code>obesidade-grau2-1.html</code>.</li>
+        <li>Preencha o conteúdo clínico (história, exames, raciocínio da EVA, condutas).</li>
+        <li>Inclua o link na lista abaixo com título e breve descrição.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>Casos disponíveis</h2>
+      <ul id="lista-casos">
+        <!-- EXEMPLOS — substitua pelos seus títulos quando enviar os casos -->
+        <li class="case-item"><a href="hiperglicemia-grave-01.html">Hiperglicemia hospitalar grave — Caso 01</a> — avaliação inicial e transição. <em>(em breve)</em></li>
+        <li class="case-item"><a href="obesidade-grau2-primeira-consulta-01.html">Obesidade grau II — primeira consulta</a> — MEVs e opções farmacológicas. <em>(em breve)</em></li>
+        <li class="case-item"><a href="nodulo-tireoidiano-14mm.html">Nódulo tireoidiano 1,4 cm — risco intermediário</a> — indicação de PAAF. <em>(em breve)</em></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
